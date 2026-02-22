@@ -63,7 +63,7 @@ function openMessageGate() {
     if (msgMusic) {
         msgMusic.play().then(() => {
             msgMusic.pause(); // Mainkan lalu pause instan agar "izin" dari iOS didapat
-            msgMusic.currentTime = 45; // Set ke Reff
+            msgMusic.currentTime = 8; // Set ke Reff
         }).catch(e => console.log("Izin audio belum keluar"));
     }
 
@@ -201,6 +201,7 @@ function toggleMusic() {
     }
 
 }
+
 
 
 
