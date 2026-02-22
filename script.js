@@ -55,20 +55,41 @@ function showHome() {
 
 // 4. Fungsi Navigasi: Tampilkan "Pintu" Pesan
 function openMessageGate() {
-    // 1. Logika transisi layar hitam yang kita buat tadi...
     const overlay = document.getElementById('transition-overlay');
+    const homeMusic = document.getElementById('myAudio');
+    const msgMusic = document.getElementById('msgAudio');
+    
+    // 1. Mulai Transisi Hitam
     overlay.classList.add('active');
 
     setTimeout(() => {
-        // 2. Ganti konten
+        // 2. Sembunyikan Home & Munculkan Pesan
         document.getElementById('home-content').style.display = 'none';
         document.getElementById('message-module').classList.remove('hidden');
 
-        // 3. PAKSA LAYAR KE ATAS (TAMBAHKAN INI)
-        window.scrollTo(0, 0); 
+        // 3. SOLUSI iOS: Paksa scroll ke atas dengan durasi 10ms
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }, 10);
 
-        // 4. Ganti lagu dan buka overlay...
-        // (Sisa kode yang sudah ada)
+        // 4. SOLUSI ANDROID: Logika Ganti Lagu yang Lebih Kuat
+        if (homeMusic && msgMusic) {
+            homeMusic.pause(); 
+            homeMusic.currentTime = 0; // Reset lagu lama agar Android benar-benar melepasnya
+            
+            msgMusic.currentTime = 45; // Detik Reff lagu keduamu
+            
+            // Berikan sedikit jeda sebelum play agar Android tidak error
+            setTimeout(() => {
+                msgMusic.play().catch(e => console.log("Musik tertahan browser"));
+            }, 50);
+            
+            document.getElementById('music-icon').innerText = "💌"; 
+        }
+
+        // 5. Buka kembali layar hitam
         overlay.classList.remove('active');
     }, 800);
 }
@@ -175,3 +196,4 @@ function toggleMusic() {
     }
 
 }
+
