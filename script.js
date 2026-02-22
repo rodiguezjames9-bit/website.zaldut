@@ -55,30 +55,22 @@ function showHome() {
 
 // 4. Fungsi Navigasi: Tampilkan "Pintu" Pesan
 function openMessageGate() {
+    // 1. Logika transisi layar hitam yang kita buat tadi...
     const overlay = document.getElementById('transition-overlay');
-    
-    // 1. Layar Menghitam
     overlay.classList.add('active');
 
     setTimeout(() => {
-        // 2. Ganti Tampilan di balik layar hitam
+        // 2. Ganti konten
         document.getElementById('home-content').style.display = 'none';
         document.getElementById('message-module').classList.remove('hidden');
 
-        // 3. Ganti Lagu ke Reff Lagu Kedua
-        const homeMusic = document.getElementById('myAudio');
-        const msgMusic = document.getElementById('msgAudio');
+        // 3. PAKSA LAYAR KE ATAS (TAMBAHKAN INI)
+        window.scrollTo(0, 0); 
 
-        if (homeMusic && msgMusic) {
-            homeMusic.pause();
-            msgMusic.currentTime = 8; // Ganti dengan detik Reff lagu pesanmu
-            msgMusic.play().catch(e => console.log("Musik tertahan"));
-            document.getElementById('music-icon').innerText = "💌"; 
-        }
-
-        // 4. Buka kembali layar hitamnya
+        // 4. Ganti lagu dan buka overlay...
+        // (Sisa kode yang sudah ada)
         overlay.classList.remove('active');
-    }, 800); // 800ms adalah durasi saat layar benar-benar gelap
+    }, 800);
 }
 function showHome() {
     const overlay = document.getElementById('transition-overlay');
@@ -181,4 +173,5 @@ function toggleMusic() {
         btn.classList.remove('music-playing');
         icon.innerText = "🎵";
     }
+
 }
