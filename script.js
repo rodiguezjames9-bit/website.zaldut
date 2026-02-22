@@ -62,39 +62,33 @@ function openMessageGate() {
     // TRICK UNTUK iOS: Aktifkan audio kedua SEGERA saat tombol diklik
     if (msgMusic) {
         msgMusic.play().then(() => {
-            msgMusic.pause(); // Mainkan lalu pause instan agar "izin" dari iOS didapat
-            msgMusic.currentTime = 8; // Set ke Reff
+            msgMusic.pause(); 
+            msgMusic.currentTime = 8; // GANTI JADI 8 DI SINI
         }).catch(e => console.log("Izin audio belum keluar"));
     }
 
-    // 1. Mulai Transisi Hitam
     overlay.classList.add('active');
 
     setTimeout(() => {
-        // 2. Ganti Konten
         document.getElementById('home-content').style.display = 'none';
         document.getElementById('message-module').classList.remove('hidden');
 
-        // 3. Paksa Scroll ke Atas (Solusi yang sudah berhasil tadi)
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
 
-        // 4. Logika Tukar Lagu (Versi iOS & Android Hybrid)
         if (homeMusic && msgMusic) {
             homeMusic.pause();
             
-            // Panggil kembali lagu kedua yang sudah kita "pancing" di atas tadi
+            // Panggil kembali lagu kedua
             msgMusic.play().catch(e => {
-                // Jika masih gagal di iOS, kita coba lagi sekali tanpa jeda
-                msgMusic.currentTime = 8;
+                msgMusic.currentTime = 8; // GANTI JADI 8 DI SINI JUGA
                 msgMusic.play();
             });
 
             document.getElementById('music-icon').innerText = "💌"; 
         }
 
-        // 5. Buka kembali layar hitam
         overlay.classList.remove('active');
     }, 800);
 }
@@ -201,6 +195,7 @@ function toggleMusic() {
     }
 
 }
+
 
 
 
