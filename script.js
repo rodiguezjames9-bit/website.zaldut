@@ -87,7 +87,7 @@ function openMessageGate() {
             // Panggil kembali lagu kedua yang sudah kita "pancing" di atas tadi
             msgMusic.play().catch(e => {
                 // Jika masih gagal di iOS, kita coba lagi sekali tanpa jeda
-                msgMusic.currentTime = 45;
+                msgMusic.currentTime = 0;
                 msgMusic.play();
             });
 
@@ -201,5 +201,6 @@ function toggleMusic() {
     }
 
 }
+
 
 
