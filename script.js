@@ -59,33 +59,38 @@ function openMessageGate() {
     const homeMusic = document.getElementById('myAudio');
     const msgMusic = document.getElementById('msgAudio');
     
+    // TRICK UNTUK iOS: Aktifkan audio kedua SEGERA saat tombol diklik
+    if (msgMusic) {
+        msgMusic.play().then(() => {
+            msgMusic.pause(); // Mainkan lalu pause instan agar "izin" dari iOS didapat
+            msgMusic.currentTime = 45; // Set ke Reff
+        }).catch(e => console.log("Izin audio belum keluar"));
+    }
+
     // 1. Mulai Transisi Hitam
     overlay.classList.add('active');
 
     setTimeout(() => {
-        // 2. Sembunyikan Home & Munculkan Pesan
+        // 2. Ganti Konten
         document.getElementById('home-content').style.display = 'none';
         document.getElementById('message-module').classList.remove('hidden');
 
-        // 3. SOLUSI iOS: Paksa scroll ke atas dengan durasi 10ms
-        setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'instant' });
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-        }, 10);
+        // 3. Paksa Scroll ke Atas (Solusi yang sudah berhasil tadi)
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
 
-        // 4. SOLUSI ANDROID: Logika Ganti Lagu yang Lebih Kuat
+        // 4. Logika Tukar Lagu (Versi iOS & Android Hybrid)
         if (homeMusic && msgMusic) {
-            homeMusic.pause(); 
-            homeMusic.currentTime = 0; // Reset lagu lama agar Android benar-benar melepasnya
+            homeMusic.pause();
             
-            msgMusic.currentTime = 45; // Detik Reff lagu keduamu
-            
-            // Berikan sedikit jeda sebelum play agar Android tidak error
-            setTimeout(() => {
-                msgMusic.play().catch(e => console.log("Musik tertahan browser"));
-            }, 50);
-            
+            // Panggil kembali lagu kedua yang sudah kita "pancing" di atas tadi
+            msgMusic.play().catch(e => {
+                // Jika masih gagal di iOS, kita coba lagi sekali tanpa jeda
+                msgMusic.currentTime = 45;
+                msgMusic.play();
+            });
+
             document.getElementById('music-icon').innerText = "💌"; 
         }
 
@@ -196,4 +201,5 @@ function toggleMusic() {
     }
 
 }
+
 
