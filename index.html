@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IniWebsiteku</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="transition-overlay"></div>
+    <div id="intro-layer">
+        <div class="intro-content">
+            <h1 class="glitch-text"><span id="typing-target"></span><span class="cursor">&nbsp;</span></h1>
+            <button id="enterBtn" class="enter-btn hidden-btn" onclick="startSystem()">ENTER</button>
+        </div>
+    </div>
+
+    <main id="main-ui">
+        <nav>
+            <div class="logo">MamamilaWebsite</div>
+            <div class="menu">
+    <a href="javascript:void(0)" onclick="showHome()"></a>
+    
+   <div class="menu">
+			<a href="#Home">Home</a>
+            <a href="#contact">Contact</a>
+</div>
+        </nav>
+
+        <div id="home-content">
+            <section id="Home" class="content-section">
+                <div class="profile-container">
+                    <div class="profile-image-wrapper">
+                        <div class="image-border"></div>
+                        <img src="foto.jpg" alt="Profile" class="profile-pic">
+                    </div>
+                    <div class="profile-details">
+                        <p>Hallo, Perkenalkan nama aku</p>
+                        <h2 class="section-title">Amalia Azhari</h2>
+                        <p class="user-title">---------------------------------------------------------------------------</p>
+                        <div class="bio-box">
+                            <p>aku adalah seorang perempuan yang ceria, hebat dan tangguh. Di Keseharian aku ini diwarnai hal-hal sederhana yang aku sukai seperti mendengarkan korean music, mba nadin amizah, mba niki, mba taylor swift dan lain lain.</p> 
+							<p>Selain mendengarkan musik aku juga gemar berolahraga terutama bersepedah hal ini untuk menjaga energi dan pikiran agar tetap jernih.</p>
+							<p>aku juga suka menonton drama Korea dan membaca buku dan itu adalah cara kecilku untuk beristirahat dari kesibukan yang padat ini.</p>
+							<p>aku sebagai anak terakhir dari 4 bersaudara, yang terlahir dari keluarga sederhana yang bahagia tempat di mana nilai kebersamaan, kerja keras, dan saling mendukung menjadi bagian dari hidup aku sejak kecil.</p>
+							<p>Sebagai anak terakhir dari empat bersaudara, aku tumbuh dengan banyak belajar dari kakak-kakak aku, tentang tanggung jawab, tentang cara bertahan, dan tentang arti keluarga.</p>
+							<p>Semua pengalaman itu membentuk aku menjadi pribadi yang kuat tapi tetap hangat, mandiri tapi tidak kehilangan sisi lembut.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+					<div class="action-wrapper">
+        <button class="msg-trigger-btn" onclick="openMessageGate()">Open Messages</button>
+    </div>
+        </div>
+
+		
+</div>
+        <div id="message-module" class="hidden">
+            <section class="content-section">
+                <h2 class="section-title centered">messages</h2>
+                <div class="message-item">
+                    <p class="msg-meta">From: Rizky Rizaldut</p>
+					<p class="msg-meta">To: Amalia Azhari
+					<p class="msg-text">Assalamualaikum, hallo selamat dini hari dan selamat hepi birthday yang ke-25 yaa panjang umur sehat selalu berkah umurnya berkah juga rezekinya terus apa yang di citacitakan bisa tercapai di umur 25 inii ya aminn wish u all the best, soo selamat datang di umur 25 ini yaa hehee, kalo kata orang orang mah umur 25 tuh udah masuk fase quarter life crisis. semangatt ya ngejalaninnya jangan kasih kendor dan yang paling penting jangan putus asa tetap berjuang jaga kesehatan okeey, dan kebetulan juga ultahnya pas di bulan yang penuh rahmatan lilalamin so yaa pasti umur rezeki sama puasanya juga berkah selalu:)). semoga di usia yang sudah menginjak 25 tahun ini kamu makin yakin sama dirimu sendiri, makin dekat dengan hal-hal baik, makin sering ketawa daripada menangisnya dan kalaupun ada air mata itu karna kebahagiaan yang kamu dapat bukan air mata atas kekecewaan yang kamu rasain, dan kalo aku boleh minta permintaan dari kamu aku juga mau pelukk kamu yanggg lamaaaaa bangettt, terus abis itu beli kebab bang aji, steak, nasgor takoyaki dan masih banyak lagiii. terus melepas rasa kangen kita berdua, jadi mohon dengan sangat berharap permintaan ini bisa terwujud meskipun chancenya sedikit bahkan nyaris mustahil aku berharap semoga ada keajaiban. jadi semoga harapan aku ini bisa terwujud dan terlaksanalan pengen ngobrol banyak lagi soalnya yang kemarin aku kurang puas ngobrolnya cuman bentar. jadi yaa semoga semogaa dan semogaaaa bisa yaa mungkin itu aja pesan dari akunyaa, jadi Selamat 25 tahun.
+Semoga setiap doa yang kamu simpan dalam hati satu per satu menemukan jalannya. Dan semoga aku diperbolehkan menjadi bagian kecil dari cerita panjangmu lagi, jika diperbolehkan aku ga bakal menyianyiakan kesempatan itu. 🤍 sekali lagi Aku bener" nyesel. gaada alasan yang bisa
+membenarkan apa yang udah aku lakuin. Aku cuman pengen kamu tau, aku sayang banget sama kamu. aku gamau kehilangan kamu. kalau masih ada sedikit ruang di hatimu untukku, izinkan aku memperbaiki semuanya dan menjadi seseorang yang lebih baik buat kamu. banyak semoganya yaa hehee maaf ya itu bagian dari harapan aku buat kamu soalnyaa.
+makasih udah baca pesannya aku akhirin. wassalamualaikum makasihhh
+
+byebyee👋🏼</p>
+                </div>
+               
+			   <div class="back-btn-wrapper">
+                    <button class="back-btn" onclick="showHome()">BACK TO PROFILE</button>
+                </div>
+            </section>
+        </div>
+
+        <section id="contact" class="content-section">
+            <h2 class="centered-title">Personal Contact</h2>
+            <div class="contact-box">
+                <p>Instagram: <span class="highlight">RzkyRizaldi</span></p>
+                <p>Location: <span class="highlight">Sector Bandung, ID</span></p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 // Created By Rizky Rizaldi</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+	
+	<div class="music-player">
+    <button id="musicBtn" onclick="toggleMusic()">
+        <span id="music-icon">🎵</span>
+    </button>
+    
+    <audio id="myAudio" preload="auto" loop>
+        <source src="CORTIS-JoyRide.mp3" type="audio/mpeg">
+    </audio>
+	<audio id="msgAudio" preload="auto" loop>
+        <source src="Selamat Ulang Tahun - Jamrud (Rizky Febian feat Raden Irfan Cover).mp3" type="audio/mpeg"> </audio>
+</div>
+</body>
+</html>
